@@ -1,0 +1,14 @@
+name: Obtener Rango de IPs
+
+on:
+  workflow_dispatch:
+
+jobs:
+  obtener-ips:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Obtener rangos de IPs
+        run: |
+          echo "Consultando los rangos de IP de GitHub Actions..."
+          curl -s https://api.github.com/meta | jq '.actions'
