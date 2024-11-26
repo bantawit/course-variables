@@ -1,0 +1,14 @@
+name: Mostrar IP Pública
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  mostrar-ip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ver IP Pública
+        run: |
+          echo "La IP pública del runner es:"
+          curl ifconfig.me
