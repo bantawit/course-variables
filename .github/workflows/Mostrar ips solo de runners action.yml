@@ -1,0 +1,16 @@
+name: Filtrar IPs de GitHub Actions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  filtrar-ips:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Obtener rangos de IPs de Actions
+        run: |
+          echo "Obteniendo los rangos de IPs utilizados por los runners de GitHub Actions..."
+          curl -s https://api.github.com/meta | jq '.actions' > actions-ips.json
+          echo "Los rangos de IPs relevantes son:"
+          cat actions-ips.json
